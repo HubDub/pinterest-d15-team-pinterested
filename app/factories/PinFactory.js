@@ -9,15 +9,16 @@ let getAllPins = () => {
     .success((pinObject) => {
       Object.keys(pinObject).forEach((key) => {
         pinObject[key].id = key;
-        pin.push(pinObject[key]);
+        pins.push(pinObject[key]);
       });
-    });
     resolve(pins);
-  })
+    })
     .error((error) => {
       reject(error);
     });
+  });
 };
+
 
 let getAllBoards = () => {
   let boards = [];
@@ -25,14 +26,14 @@ let getAllBoards = () => {
     $http.get(`${FirebaseURL}.boards.json`)
     .success((boardObject) => {
       Object.keys(boardObject).ForEach((key) => {
-        boardObject[key].id = key;
-        board.puch(boardObject[key]);
-      });
+          boardObject[key].id = key;
+          boards.push(boardObject[key]);
+        });
+      resolve(boards);
+      })
+    .error((error) => {
+      reject(error);
     });
-    resolve(boards);
-  });
-  .error((error) => {
-    reject(error);
   });
 };
 
