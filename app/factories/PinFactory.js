@@ -1,0 +1,121 @@
+"use strict";
+
+app.factory("PinFactory", ($q, $http, FirebaseURL) => {
+
+let getAllPins = () => {
+  let pins = [];
+  return $q( (resolve, reject) => {
+    $http.get(`${FirebaseURL}pins.json`)
+    .success((pinObject) => {
+      Object.keys(pinObject).forEach((key) => {
+        pinObject[key].id = key;
+        pin.push(pinObject[key]);
+      });
+    });
+    resolve(pins);
+  })
+    .error((error) => {
+      reject(error);
+    });
+};
+
+let getAllBoards = () => {
+  let boards = [];
+  return $q( (resolve, reject) => {
+    $http.get(`${FirebaseURL}.boards.json`)
+    .success((boardObject) => {
+      Object.keys(boardObject).ForEach((key) => {
+        boardObject[key].id = key;
+        board.puch(boardObject[key]);
+      });
+    });
+    resolve(boards);
+  });
+  .error((error) => {
+    reject(error);
+  });
+};
+
+
+let postNewPin = function(newPin){
+  return $q(function(resolve, reject){
+    $http.post(`${FirebaseURL}pins.json`, JSON.stringify(newPin))
+    .success( (ObjFromFirebase) => {
+      resolve(ObjFromFirebase);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
+let deletePin = (pinId) => {
+  return $q( (resolve, reject) => {
+    $http.delete(`${FirebaseURL}pins/${pinId}.json`)
+    .success( (ObjFromFirebase) => {
+      resolve(ObjFromFirebase);
+    });
+  });
+};
+
+
+//to edit a pin!
+let getSinglePin = (pinId) => {
+  return $q ( (resolve, reject) => {
+    $http.get(`${FirebaseURL}pins/${pinId}.json`)
+    .success( (pinObject) => {
+      resolve(pinObject);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
+//post edited pin back to firebase with only changed parts (as oppsoed to "put")
+let updatePin = (pinId, editedPin) => {
+  return $q( (resolve, reject) => {
+    $http.patch(`${FirebaseURL}pins/${pinId}.json`, JSON.stringify(editedPin))
+    .success( (pinObject) => {
+      resolve(pinObject);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
+let getSingleBoard = (boardId) => {
+  return $q ( (resolve, reject) => {
+    $http.get(`${FirebaseURL}boards/${boardId}.json`)
+    .success( (boardObject) => {
+      resolve(boardObject);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
+let updateBoard = (boardId, editedBoard) => {
+  return $q ( (resolve, reject) => {
+    $http.patch(`${FirebaseURL}boards/${boardId}.json`, JSON.stringify(editedBoard))
+    .success( (boardObject) => {
+      resolve(boardObject);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
+
+return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getAllBoards};
+
+});
+
+
+
+
+
+
