@@ -20,10 +20,10 @@ let getAllPins = () => {
 };
 
 
-let getAllBoards = () => {
+ let getUserBoards = (userId) => {
   let boards = [];
   return $q( (resolve, reject) => {
-    $http.get(`${FirebaseURL}boards.json`)
+    $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
       Object.keys(boardObject).ForEach((key) => {
           boardObject[key].id = key;
@@ -110,6 +110,20 @@ let updatePin = (pinId, editedPin) => {
   });
 };
 
+ let getDropdownBoards = (userId) => {
+
+  return $q( (resolve, reject) => {
+    $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
+    .success((boardObject) => {
+      console.log(boardObject)
+      resolve(boardObject);
+      })
+    .error((error) => {
+      reject(error);
+    });
+  });
+};
+
 let getSingleBoard = (boardId) => {
   return $q ( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards/${boardId}.json`)
@@ -146,7 +160,7 @@ let deleteABoard = (boardId) => {
   });
 };
 
-return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getAllBoards, postNewBoard, deleteABoard};
+return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard, getDropdownBoards};
 
 });
 
