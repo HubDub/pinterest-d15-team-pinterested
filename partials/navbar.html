@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Todo App</a>
+        <a class="navbar-brand" href="#">@Pinterested?</a>
       </div>
       <!-- search -->
       <div class="col-xs-6 searchBox" ng-show="isActive('/items/list')">
@@ -24,7 +24,8 @@
         <!-- TODO: Use Angular to loop through nav items -->
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!$parent.isLoggedIn"><a ng-href="#/login">Login</a></li>
-          <li ><a ng-href="#/allpins">View Pins</a></li>
+        <!--   somehow use this to change route to login, so that login screen is not automatically present on click (or nav bar doesn't show "login" and replicate what's in the partial) -->
+          <li ><a ng-href="#/allpins" ng-show="$parent.isLoggedIn">View Pins</a></li>
           <li ng-show="$parent.isLoggedIn"><a ng-href="#/allboards">View Boards</a></li>
           <li ng-show="$parent.isLoggedIn"><button ng-click="logout()">Logout</button></li>
         <!-- ng-repeat="item in navItems"> !-->
