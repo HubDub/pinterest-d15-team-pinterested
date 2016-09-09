@@ -1,17 +1,18 @@
      <h1>Radical Pins</h1>
          <!--  <div class="row"> -->
-          <div class ="panel panel-primary col-md-3" ng-repeat="pin in pins">
+          <div class ="panel panel-primary col-md-3 .containerfluid" ng-repeat="pin in pins">
+            <div class="row">
               <div class="panel-body">
-                <div><a ng-href="/{{pin.id}}">{{pin.keyWords}}</a></div>
-                <img class="pin-pic" src= "{{pin.photo}}">
+                <!-- <div><a ng-href="/{{pin.id}}">{{pin.keyWords}}</a></div> -->
+                <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
                 <div>{{pin.caption}}</div>
                 <div>
                <!--  <button class="btn btn-danger" ng-click="deletePin(pin.id)">X</button> -->
                <button class="btn btn-success">Save This Pin!</button>
-
                </div>
               </div>
-          <!--   </div> -->
+              <div class="col-md-1"></div>
+            </div>
           </div>
 
 

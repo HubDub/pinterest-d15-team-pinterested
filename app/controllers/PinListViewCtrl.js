@@ -16,5 +16,9 @@ app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams ){
             return pin.id === $routeParams.pinId;
         })[0];
     });
+
+    //STRETCH GOAL - MATERIALIZE (below)
+    // $('.materialboxed').materialbox();
+
     // PinFactory.
 });
