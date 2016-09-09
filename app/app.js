@@ -24,6 +24,30 @@ app.config(function($routeProvider){
             templateUrl:"partials/login.html",
             controller: "LoginCtrl"
         }).
+
+        when("/allboards", {
+            templateUrl: 'partials/allBoards.html',
+            controller: "AllBoardsCtrl",
+            resolve: {isAuth}
+
+        }).
+        when("/allpins", {
+            templateUrl: 'partials/pinListView.html',
+            controller: "PinListViewCtrl",
+            resolve: {isAuth}
+        }).
+        when('/:boardId', {
+
+            templateUrl: "partials/oneBoard.html",
+            controller: "OneBoardCtrl",
+            resolve: {isAuth}
+        }).
+
+        when("/:pinId", {
+            templateUrl: "partials/savePin.html",
+            controller: "SavePinCtrl",
+        }).
+
         // when("/allboards", {
         //     templateUrl: 'partials/allBoards.html',
         //     controller: "AllBoardsCtrl",
@@ -48,11 +72,12 @@ app.config(function($routeProvider){
         //     resolve: {isAuth}
         // }).
 
-        when("/newboard", {
-            templateUrl: "partials/newBoard.html",
-            controller: "NewBoardCtrl",
-            resolve: {isAuth}
-        }).
+        // when("/newboard", {
+        //     templateUrl: "partials/newBoard.html",
+        //     controller: "NewBoardCtrl",
+
+        //     resolve: {isAuth}
+        // }).
 
         otherwise("/");
 
