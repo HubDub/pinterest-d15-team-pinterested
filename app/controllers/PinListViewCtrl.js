@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams ){
+app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams, $location ){
 
     $scope.pins = [];
 
@@ -17,8 +17,15 @@ app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams ){
         })[0];
     });
 
-    //STRETCH GOAL - MATERIALIZE (below)
-    // $('.materialboxed').materialbox();
+$scope.addNewPin = (clickedPin ) => {
+    console.log(clickedPin);
+  PinFactory.postNewPin(clickedPin)
+    .then( (response) => {
+      $location.url("/allpins");
+  });
+};
 
-    // PinFactory.
+$scope.savePin =  () => {
+        $('#board-list').removeClass("hidden");
+    };
 });
