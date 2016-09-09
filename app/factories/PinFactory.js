@@ -50,6 +50,18 @@ let postNewPin = function(newPin){
   });
 };
 
+let postNewBoard = function(newBoard){
+  return $q(function(resolve, reject){
+    $http.post(`${FirebaseURL}boards.json`, JSON.stringify(newBoard))
+    .success( (ObjFromFirebase) => {
+      resolve(ObjFromFirebase);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
 let deletePin = (pinId) => {
   return $q( (resolve, reject) => {
     $http.delete(`${FirebaseURL}pins/${pinId}.json`)
@@ -111,7 +123,7 @@ let updateBoard = (boardId, editedBoard) => {
 };
 
 
-return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getAllBoards};
+return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getAllBoards, postNewBoard};
 
 });
 

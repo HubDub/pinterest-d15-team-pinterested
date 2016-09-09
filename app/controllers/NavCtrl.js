@@ -10,8 +10,8 @@ app.controller("NavCtrl", function($scope,
             //a ! becuase we want this to show when the others done
             //$parent scope inherits from the root scope from what is wrapped around it
             {url: '#/allpins', name: "All Pins", showState: "$parent.isLoggedIn"},
-            {url: '#/allboards', name: "All Boards", showState: "$parent.isLoggedIn"}
-
+            {url: '#/allboards', name: "All Boards", showState: "$parent.isLoggedIn"},
+            {url: '#/newboard', name: "New Board", showState: "$parent.isLoggedIn"}
 
     ];
 
