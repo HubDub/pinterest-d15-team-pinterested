@@ -32,7 +32,7 @@ app.controller("LoginCtrl", function($scope, $window, AuthFactory ) {
         }
         console.log("data from login ", data);
       }, (error) => {
-        console.log("there's an error loggin in");
+        console.log("there's an error logging in");
       });
   };
 });
