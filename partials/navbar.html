@@ -24,8 +24,8 @@
         <!-- TODO: Use Angular to loop through nav items -->
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!$parent.isLoggedIn"><a ng-href="#/login">Login</a></li>
-          <li ng-show="$parent.isLoggedIn"><a ng-href="#/allpins">View Pins</a></li>
-          <li ng-show="$parent.isLoggedIn"><a ng-href="#/allboards">View Your Boards</a></li>
+          <li ><a ng-href="#/allpins">View Pins</a></li>
+          <li ng-show="$parent.isLoggedIn"><a ng-href="#/allboards">View Boards</a></li>
           <li ng-show="$parent.isLoggedIn"><button ng-click="logout()">Logout</button></li>
         <!-- ng-repeat="item in navItems"> !-->
           <!-- <li><a ng-show="{{item.showState}}" href="{{item.url}}">{{item.name}}</a></li> -->
