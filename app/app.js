@@ -37,12 +37,6 @@ app.config(function($routeProvider){
             resolve: {isAuth}
         }).
 
-        // when('/:boardId', {
-        //     templateUrl: "partials/oneBoard.html",
-        //     controller: "OneBoardCtrl",
-        //     resolve: {isAuth}
-        // }).
-
         // when("/:pinId", {
         //     templateUrl: "partials/savePin.html",
         //     controller: "SavePinCtrl",
@@ -60,8 +54,13 @@ app.config(function($routeProvider){
             resolve: {isAuth}
         }).
 
-        otherwise("/");
+         when("/newpin", {
+            templateUrl: "partials/newPin.html",
+            controller: "NewPinCtrl",
+            resolve: {isAuth}
+        }).
 
+        otherwise("/");
 });
 
 

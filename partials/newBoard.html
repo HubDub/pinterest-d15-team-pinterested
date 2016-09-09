@@ -1,16 +1,13 @@
 <h1>{{title}}</h1>
-<!-- this will add the title based on which controller you're loading -->
-          <form>
-            <div class="form-group">
-              <label>Board Name</label>
-              <!-- TODO: Hook up this form to our JS for submitting -->
-              <input type="text" class="form-control" placeholder="Coffee Farming" ng-model="newBoard.name"/>
-            </div>
-            <div class="form-group">
-              <label>Board Description</label>
-              <input type="text" class="form-control" placeholder="Photos from Doi Chang Coffee Farm" ng-model="newBoard.description">
-            <div class="form-group">
-            </div>
-            <!-- TODO: bind this button to a function -->
-            <button class="btn btn-default" ng-click="addNewBoard()">{{btnText}}</button>
-          </form>
+  <form>
+    <div class="form-group">
+      <label>Board Name</label>
+      <input type="text" class="form-control" placeholder="Coffee Farming" ng-model="newBoard.name"/>
+    </div>
+    <div class="form-group">
+      <label>Board Description</label>
+      <input type="text" class="form-control" placeholder="Photos from Doi Chang Coffee Farm" ng-model="newBoard.description">
+    <div class="form-group">
+    </div>
+    <button class="btn btn-default" ng-click="addNewBoard()">{{btnText}}</button>
+  </form>

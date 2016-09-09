@@ -23,7 +23,7 @@ let getAllPins = () => {
 let getAllBoards = () => {
   let boards = [];
   return $q( (resolve, reject) => {
-    $http.get(`${FirebaseURL}.boards.json`)
+    $http.get(`${FirebaseURL}boards.json`)
     .success((boardObject) => {
       Object.keys(boardObject).ForEach((key) => {
           boardObject[key].id = key;
@@ -32,6 +32,18 @@ let getAllBoards = () => {
       resolve(boards);
       })
     .error((error) => {
+      reject(error);
+    });
+  });
+};
+
+let getOneBoardPins = (boardId) => {
+  return $q( (resolve,reject) => {
+    $http.get(`{FirebaseURL}?orderBy="boardId"&equalTo="${boardId}"`)
+    .success((boardPins) => {
+      resolve(boardPins);
+    })
+    .error( (error) => {
       reject(error);
     });
   });
