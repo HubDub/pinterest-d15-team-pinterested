@@ -1,0 +1,18 @@
+<h1>One Board</h1>
+<!-- for each loop to go through all boards -->
+<div ng-repeat="board in boards">
+    <div class="col-md-5 cold-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>{{board.name}}</h3>
+          <h4>{{board.description}}<h4>
+      <!-- for each loop to go through pins on board -->
+          <div ng-repeat="pins in pins">
+            <p>{{pin.image}}</p>
+            <p>{{pin.caption}}</p>
+          </div>
+        <button ng-href="/#/oneBoard/{{board.id}">Edit Board</button>
+        </div>
+      </div>
+    </div>
+</div>

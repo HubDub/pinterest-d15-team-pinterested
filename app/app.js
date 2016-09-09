@@ -1,6 +1,6 @@
 "use strict";
 var app = angular.module("PinterestApp", ["ngRoute"])
-.constant('FirebaseURL','https://pinterest-75ff6.firebaseio.com/');
+.constant('FirebaseURL','https://fake-pinterest-group-project.firebaseio.com/');
 
 
 app.config(function($routeProvider){
@@ -24,6 +24,7 @@ app.config(function($routeProvider){
             templateUrl:"partials/login.html",
             controller: "LoginCtrl"
         }).
+
         when("/allboards", {
             templateUrl: 'partials/allBoards.html',
             controller: "AllBoardsCtrl",
@@ -45,14 +46,42 @@ app.config(function($routeProvider){
         when("/:pinId", {
             templateUrl: "partials/savePin.html",
             controller: "SavePinCtrl",
-            resolve: {isAuth}
         }).
+
+        // when("/allboards", {
+        //     templateUrl: 'partials/allBoards.html',
+        //     controller: "AllBoardsCtrl",
+        //     resolve: {isAuth}
+
+        // }).
+        // when("/allpins", {
+        //     templateUrl: 'partials/pinListView.html',
+        //     controller: "pinListViewCtrl",
+        //     resolve: {isAuth}
+        // }).
+        // when('/:boardId', {
+
+        //     templateUrl: "partials/oneBoard.html",
+        //     controller: "OneBoardCtrl",
+        //     resolve: {isAuth}
+        // }).
+
+        // when("/:pinId", {
+        //     templateUrl: "partials/savePin.html",
+        //     controller: "SavePinCtrl",
+        //     resolve: {isAuth}
+        // }).
+
+        // when("/newboard", {
+        //     templateUrl: "partials/newBoard.html",
+        //     controller: "NewBoardCtrl",
+
+        //     resolve: {isAuth}
+        // }).
 
         otherwise("/");
 
 });
-
-
 
 
 app.run( ($location, FBCreds) => {
