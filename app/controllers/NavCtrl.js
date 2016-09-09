@@ -11,7 +11,8 @@ app.controller("NavCtrl", function($scope,
             //$parent scope inherits from the root scope from what is wrapped around it
             {url: '#/allpins', name: "All Pins", showState: "$parent.isLoggedIn"},
             {url: '#/allboards', name: "All Boards", showState: "$parent.isLoggedIn"},
-            {url: '#/newboard', name: "New Board", showState: "$parent.isLoggedIn"}
+            {url: '#/newboard', name: "New Board", showState: "$parent.isLoggedIn"},
+            {url: '#/newpin', name: "New Pin", showState: "$parent.isLoggedIn"}
 
     ];
 
