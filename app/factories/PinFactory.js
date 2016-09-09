@@ -122,8 +122,19 @@ let updateBoard = (boardId, editedBoard) => {
   });
 };
 
+let deleteABoard = (boardId) => {
+  return $q ( (resolve, reject) => {
+    $http.delete(`${FirebaseURL}boards/${boardId}.json`)
+    .success( (response) => {
+      resolve(response);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
 
-return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getAllBoards, postNewBoard};
+return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getAllBoards, postNewBoard, deleteABoard};
 
 });
 
