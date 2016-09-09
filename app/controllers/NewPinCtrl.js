@@ -5,7 +5,8 @@ app.controller("NewPinCtrl", function ($scope, PinFactory, $location){
     $scope.btnText = "Save";
     $scope.newPin = {
         caption: '',
-        keyWords: ''
+        keyWords: '',
+        photo:''
     };
 
 
