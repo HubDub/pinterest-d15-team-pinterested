@@ -5,6 +5,10 @@ app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFac
   PinFactory.getSingleBoard($routeParams.boardId)
   .then( (singleBoard) => {
     console.log("inside getSingleBoard", singleBoard);
+    PinFactory.getOneBoardPins(boardId)
+      .then( (pinsOnBoard) => {
+        return pinsOnBoard;
+      });
     return singleBoard;
   });
 
@@ -20,6 +24,7 @@ app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFac
     PinFactory.deleteABoard(boardId)
     .then( (response) => {
       $location.url("/allBoards");
+      //how delete the pins on this board too
     });
   };
 
