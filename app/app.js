@@ -32,7 +32,7 @@ app.config(function($routeProvider){
         }).
         when("/allpins", {
             templateUrl: 'partials/pinListView.html',
-            controller: "pinListViewCtrl",
+            controller: "PinListViewCtrl",
             resolve: {isAuth}
         }).
         when('/:boardId', {
