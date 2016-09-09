@@ -25,7 +25,7 @@ $scope.addNewPin = (clickedPin ) => {
   });
 };
 
-$scope.savePin =  () => {
-        $('#board-list').removeClass("hidden");
+$scope.makeNewBoard =  () => {
+        return $location.url("/newboard");
     };
 });
