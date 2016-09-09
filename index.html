@@ -1,33 +1,45 @@
 <html>
-<head>
-    <title>Pinterested?</title>
-    <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-</head>
-<body ng-app="PinterestApp">
-<h1>Pinterested?</h1>
-  <!-- <div ng-controller="TopCtrl"> -->
-    <div ng-include=" 'partials/navbar.html' ">
-    </div>
-    <!-- </div> -->
-<!-- 3rd party libs -->
-<script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/npm.js"></script>
-<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
-<!-- App-specific files -->
-<script type="text/javascript" src="app/app.js"></script>
-<script type="text/javascript" src="app/values/fb-creds.js"></script>
-
-<script type="text/javascript" src="/app/controllers/AllBoardsCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/LoginCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/NavCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/NewBoardCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/OneBoardCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/PinListViewCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/SavePinCtrl.js"></script>
-<script type="text/javascript" src="/app/controllers/TopCtrl.js"></script>
-</body>
+    <head>
+        <title>Pinterested?</title>
+        <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+    </head>
+    <body ng-app="PinterestApp">
+    <div ng-controller="TopCtrl">
+        <!-- <h1>Pinterested?</h1> -->
+        <!-- <div ng-controller="TopCtrl"> -->
+        <div ng-include=" 'partials/navbar.html' ">
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 main-container">
+                <div class="col-xs-12" ng-view>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- </div> -->
+        <!-- 3rd party libs -->
+        <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/npm.js"></script>
+        <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+        <!-- App-specific files -->
+        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="app/values/fb-creds.js"></script>
+        <!-- controllers -->
+        <script type="text/javascript" src="/app/controllers/AllBoardsCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/LoginCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/NavCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/NewBoardCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/OneBoardCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/PinListViewCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/SavePinCtrl.js"></script>
+        <script type="text/javascript" src="/app/controllers/TopCtrl.js"></script>
+        <!-- factories -->
+        <script type="text/javascript" src="/app/factories/AuthFactory.js"></script>
+        <script type="text/javascript" src="/app/factories/FilterFactory.js"></script>
+        <script type="text/javascript" src="/app/factories/PinFactory.js"></script>
+    </body>
 </html>
