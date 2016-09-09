@@ -10,16 +10,11 @@
                <!--  <button class="btn btn-danger" ng-click="deletePin(pin.id)">X</button> -->
               <!--  <button class="btn btn-success">Save This Pin!</button> -->
             <div class="input-group-btn  board-list">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save This Pin</button>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="board"><a href="#">Existing Board</a></li>
-              <li class="board"><a href="#">Existing Board</a></li>
-              <li class="board"><a href="#">Existing Boards</a></li>
-              <li class="board"><a href="#">Existing Board</a></li>
-              <li class="board"><a href="#">Existing Board</a></li>
-              <li class="board"><a href="#">Existing Board</a></li>
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="userBoards()">Save This Pin</button>
+            <ul class="dropdown-menu dropdown-menu-right" ng-repeat="board in boards" >
+              <li class="board" ><a href="#">{{board.name}}</a></li>
               <li role="separator" class="divider"></li>
-              <li class="newBoard" ng-click="makeNewBoard()"><a href="#">Create a New Board</a></li>
+              <li class="newBoard"><a href="#/newboard">Create a New Board</a></li>
             </ul>
           </div>
           </div>
