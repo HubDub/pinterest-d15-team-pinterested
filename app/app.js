@@ -25,11 +25,11 @@ app.config(function($routeProvider){
             controller: "LoginCtrl"
         }).
 
-        // when("/allboards", {
-        //     templateUrl: 'partials/allBoards.html',
-        //     controller: "AllBoardsCtrl",
-        //     resolve: {isAuth}
-        // }).
+        when("/allboards", {
+            templateUrl: 'partials/allBoards.html',
+            controller: "AllBoardsCtrl",
+            resolve: {isAuth}
+        }).
 
         when("/allpins", {
             templateUrl: 'partials/pinListView.html',
