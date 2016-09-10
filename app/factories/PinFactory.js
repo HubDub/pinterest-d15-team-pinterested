@@ -21,16 +21,16 @@ let getAllPins = () => {
 
 
  let getUserBoards = (userId) => {
-  // let boards = [];
+  let boards = [];
   return $q( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
       console.log("in getUserBoards", boardObject);
-      // Object.keys(boardObject).ForEach((key) => {
-      //     boardObject[key].id = key;
-      //     boards.push(boardObject[key]);
-      //   });
-      resolve(boardObject);
+      Object.keys(boardObject).forEach((key) => {
+          boardObject[key].id = key;
+          boards.push(boardObject[key]);
+        });
+      resolve(boards);
       })
     .error((error) => {
       reject(error);
@@ -139,7 +139,7 @@ let getSingleBoard = (boardId) => {
 
 let updateBoard = (boardId, editedBoard) => {
   return $q ( (resolve, reject) => {
-    $http.patch(`${FirebaseURL}boards/${boardId}.json`, JSON.stringify(editedBoard))
+    $http.put(`${FirebaseURL}boards/${boardId}.json`, JSON.stringify(editedBoard))
     .success( (boardObject) => {
       resolve(boardObject);
     })

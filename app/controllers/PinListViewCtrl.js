@@ -29,24 +29,33 @@ $scope.userBoards = function(){
       console.log("we are in getUserBoards", boardArray);
       for (var board in boardArray) {
         boardArray[board].id = board;
+        console.log(board.id, "board.id")
+        console.log("board", board);
+        console.log("boardArray", boardArray);
+        console.log("boardArray[board]", boardArray[board]);
         // console.log('board', board, 'boardArray', boardArray)
-      console.log(board)
+          return PinFactory.updateBoard(board, boardArray[board]);
+      // console.log("board id?", board)
+     }
+    })
       // board.id = board; //am I pushing this onto each board object as a its own property??????
+
+
+      .then( () => {
+
        boards.push(boardArray[board])
        boards.forEach(function (board){
         console.log(boardArray);
-
        })
        console.log(boards)
        // boards.push(boardArray[board].name)
-      }
+      })
       // console.log(boards)
      $scope.boards = boards;
       console.log("$scope.boards", $scope.boards);
+
       // return boards;
             // $scope.boards = boardArray;
       // console.log("you have an array of boards", boardArray);
-    });
-};
-
+    };
 });
