@@ -3,20 +3,11 @@
 app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams, $window, $location ){
 
 let userId = $scope.$parent.getUser();
-
-
-
     $scope.pins = [];
-
     PinFactory.getAllPins()
-
-
     .then( (pinListArr) => {
         $scope.pins = pinListArr;
-
-
         $scope.selectedPin = $scope.pins.filter(function(pin){
-
             return pin.id === $routeParams.pinId;
         })[0];
     });
@@ -28,8 +19,6 @@ $scope.addNewPin = (clickedPin ) => {
       $location.url("/allpins");
   });
 };
-
-
 
 $scope.userBoards = function(){
    let boards = [];
@@ -53,7 +42,7 @@ $scope.userBoards = function(){
       }
       // console.log(boards)
      $scope.boards = boards;
-      console.log($scope.boards);
+      console.log("$scope.boards", $scope.boards);
       // return boards;
             // $scope.boards = boardArray;
       // console.log("you have an array of boards", boardArray);
