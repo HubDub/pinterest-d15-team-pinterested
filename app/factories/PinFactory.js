@@ -25,17 +25,12 @@ let getAllPins = () => {
   return $q( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
-
-      Object.keys(boardObject).ForEach((key) => {
-          boardObject[key].id = key;
-          boards.push(boardObject[key]);
-          console.log('this is the board object as returned from firebase', boards);
-          // boards.forEach(function(board) {
-          //     board.id =
-          // })
-        });
-      resolve(boards);
-
+      console.log("in getUserBoards", boardObject);
+      // Object.keys(boardObject).ForEach((key) => {
+      //     boardObject[key].id = key;
+      //     boards.push(boardObject[key]);
+      //   });
+      resolve(boardObject);
       })
     .error((error) => {
       reject(error);
