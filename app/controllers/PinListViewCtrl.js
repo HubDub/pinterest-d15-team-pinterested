@@ -38,12 +38,12 @@ $scope.userBoards = function(){
     .then( (boardArray) => {
       console.log("we are in getUserBoards", boardArray);
       for (var board in boardArray) {
-       boards.push(boardArray[board])
+       boards.push(boardArray[board]);
        // boards.push(boardArray[board].name)
       }
       // console.log(boards)
      $scope.boards = boards;
-      console.log($scope.boards)
+      console.log($scope.boards);
       // return boards;
             // $scope.boards = boardArray;
       // console.log("you have an array of boards", boardArray);

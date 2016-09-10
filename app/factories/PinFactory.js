@@ -115,7 +115,7 @@ let updatePin = (pinId, editedPin) => {
   return $q( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
-      console.log(boardObject)
+      console.log(boardObject);
       resolve(boardObject);
       })
     .error((error) => {

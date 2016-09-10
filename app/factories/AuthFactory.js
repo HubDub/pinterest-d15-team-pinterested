@@ -20,6 +20,11 @@ app.factory("AuthFactory", function () {
       });
   };
 
+  let loginGoogle = function() {
+    let provider = new firebase.auth.GoogleAuthProvider();
+    return firebase.auth().signInWithPopup(provider);
+    };
+
   let logoutUser = function() {
     return firebase.auth().signOut();
   };
@@ -29,5 +34,5 @@ app.factory("AuthFactory", function () {
     return (firebase.auth().currentUser) ? true : false;
   };
 
-  return {createUser, loginUser, logoutUser, isAuthenticated};
+  return {createUser, loginUser, logoutUser, isAuthenticated, loginGoogle};
 });
