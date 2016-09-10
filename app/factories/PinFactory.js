@@ -38,17 +38,17 @@ let getAllPins = () => {
   });
 };
 
-let getOneBoardPins = (boardId) => {
-  return $q( (resolve,reject) => {
-    $http.get(`{FirebaseURL}?orderBy="boardId"&equalTo="${boardId}"`)
-    .success((boardPins) => {
-      resolve(boardPins);
-    })
-    .error( (error) => {
-      reject(error);
-    });
-  });
-};
+// let getOneBoardPins = (boardId) => {
+//   return $q( (resolve,reject) => {
+//     $http.get(`{FirebaseURL}?orderBy="boardId"&equalTo="${boardId}"`)
+//     .success((boardPins) => {
+//       resolve(boardPins);
+//     })
+//     .error( (error) => {
+//       reject(error);
+//     });
+//   });
+// };
 
 
 let postNewPin = function(newPin){
@@ -112,7 +112,6 @@ let updatePin = (pinId, editedPin) => {
 };
 
  let getDropdownBoards = (userId) => {
-
   return $q( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
