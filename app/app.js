@@ -42,11 +42,11 @@ app.config(function($routeProvider){
         //     controller: "SavePinCtrl",
         // }).
 
-        // when('/:boardId', {
-        //     templateUrl: "partials/oneBoard.html",
-        //     controller: "OneBoardCtrl",
-        //     resolve: {isAuth}
-        // }).
+        when('/:board.id', {
+            templateUrl: "partials/oneBoard.html",
+            controller: "OneBoardCtrl",
+            resolve: {isAuth}
+        }).
 
         when("/newboard", {
             templateUrl: "partials/newBoard.html",
