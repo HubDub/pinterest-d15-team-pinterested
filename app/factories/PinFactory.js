@@ -28,6 +28,10 @@ let getAllPins = () => {
       Object.keys(boardObject).ForEach((key) => {
           boardObject[key].id = key;
           boards.push(boardObject[key]);
+          console.log('this is the board object as returned from firebase', boards);
+          // boards.forEach(function(board) {
+          //     board.id =
+          // })
         });
       resolve(boards);
       })
@@ -115,7 +119,7 @@ let updatePin = (pinId, editedPin) => {
   return $q( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
-      console.log(boardObject);
+      console.log('this is what we return before printing in dropdown', boardObject);
       resolve(boardObject);
       })
     .error((error) => {
