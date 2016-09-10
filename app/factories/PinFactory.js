@@ -21,15 +21,16 @@ let getAllPins = () => {
 
 
  let getUserBoards = (userId) => {
-  let boards = [];
+  // let boards = [];
   return $q( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
     .success((boardObject) => {
-      Object.keys(boardObject).ForEach((key) => {
-          boardObject[key].id = key;
-          boards.push(boardObject[key]);
-        });
-      resolve(boards);
+      console.log("in getUserBoards", boardObject);
+      // Object.keys(boardObject).ForEach((key) => {
+      //     boardObject[key].id = key;
+      //     boards.push(boardObject[key]);
+      //   });
+      resolve(boardObject);
       })
     .error((error) => {
       reject(error);
