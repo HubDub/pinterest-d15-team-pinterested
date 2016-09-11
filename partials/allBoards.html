@@ -7,8 +7,8 @@
           <h3>{{board.name}}</h3>
           <h4>{{board.description}}<h4>
       <!-- for each loop to go through pins on board -->
-          <div ng-repeat="pins in pins">
-            <p>{{pin.image}}</p>
+          <div ng-repeat="pin in pins">
+             <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
             <p>{{pin.caption}}</p>
           </div>
         <button> <a ng-href="#/:{{board.id}}">Edit Board</a></button>

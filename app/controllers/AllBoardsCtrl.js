@@ -4,7 +4,7 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams) {
   let boards = [];
   let user = $scope.$parent.getUser();
   let boardId;
-  // let userPins = [];
+  let pins = [];
 
   PinFactory.getUserBoards(user)
     .then( (boards) => {
@@ -25,6 +25,7 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams) {
     PinFactory.getUserPins(boardId)
     .then((result) => {
       console.log('result of get user pins', result)
+      $scope.pins = result;
     })
     });
 
