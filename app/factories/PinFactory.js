@@ -38,6 +38,23 @@ let getAllPins = () => {
   });
 };
 
+let getUserPins = (boardId) => {
+  let userPins = [];
+  return $q ((resolve, reject) => {
+    $http.get(`${FirebaseURL}pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+       .success((pinObjects) => {
+      console.log("in getUserPins", pinObjects);
+      Object.keys(pinObjects).forEach((key) => {
+          pinObjects[key].id = key;
+          userPins.push(pinObjects[key]);
+        });
+      resolve(userPins);
+      })
+    .error((error) => {
+      reject(error);
+    });
+  });
+};
 // let getOneBoardPins = (boardId) => {
 //   return $q( (resolve,reject) => {
 //     $http.get(`{FirebaseURL}?orderBy="boardId"&equalTo="${boardId}"`)
@@ -163,7 +180,7 @@ let deleteABoard = (boardId) => {
 
 
 
-return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard};
+return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard, getUserPins};
 
 });
 

@@ -34,7 +34,7 @@ $scope.addNewPin = (clickedPin ) => {
   });
 };
 
-$scope.addBoardId = (pin, boardId, pinId) =>{
+$scope.addBoardIdtoPin = (pin, boardId, pinId) =>{
     let pinToEdit;
 PinFactory.getSinglePin(pinId)
 .then(function(result) {
@@ -50,32 +50,32 @@ PinFactory.updatePin(pinId, pinToEdit)
 .then(()=> {console.log('pin updated')})
 })
 }
-
-
- $scope.getBoardAndPinId = function(boardId, pinId, pin) {
-
-console.log('this is the board Id you need to attach to the pin', boardId, 'this is the pinId you want to attach the board id to', pinId, 'this is the pin in question', pin)
-// let pinBoardId = [];
-let pinBoardId = boardId;
-PinFactory.getSinglePin(pinId)
-.then( () => {
-
-    // console.log(pin)
-    pin.boardId = pinBoardId;
-    return pin;
-})
-// console.log(pin)
-// PinFactory.updatePin(pinId, pin)
-// .then( () => {
-//     console.log(pin)
-// })
-console.log(pin)
-}
-
-
-
-
 });
+
+
+//  $scope.getBoardAndPinId = function(boardId, pinId, pin) {
+
+// console.log('this is the board Id you need to attach to the pin', boardId, 'this is the pinId you want to attach the board id to', pinId, 'this is the pin in question', pin)
+// // let pinBoardId = [];
+// let pinBoardId = boardId;
+// PinFactory.getSinglePin(pinId)
+// .then( () => {
+
+//     // console.log(pin)
+//     pin.boardId = pinBoardId;
+//     return pin;
+// })
+// // console.log(pin)
+// // PinFactory.updatePin(pinId, pin)
+// // .then( () => {
+// //     console.log(pin)
+// // })
+// console.log(pin)
+// }
+
+
+
+
 
 // $scope.retrieveDropdownBoards =
 
