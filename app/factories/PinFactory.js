@@ -125,9 +125,11 @@ let updatePin = (pinId, editedPin) => {
 };
 
 let getSingleBoard = (boardId) => {
+  console.log("PF getSingleBoard boardId:", boardId);
   return $q ( (resolve, reject) => {
     $http.get(`${FirebaseURL}boards/${boardId}.json`)
     .success( (boardObject) => {
+      console.log("PF getSingleBoard after get:", boardObject);
       resolve(boardObject);
     })
     .error( (error) => {

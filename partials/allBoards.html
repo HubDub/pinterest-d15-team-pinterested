@@ -11,7 +11,8 @@
             <p>{{pin.image}}</p>
             <p>{{pin.caption}}</p>
           </div>
-        <button> <a ng-href="#/:{{board.id}}">Edit Board</a></button>
+        <button> <a ng-href="#/:{{board.id}}/edit">Edit Board</a></button>
+        <button> <a ng-click="deleteYourBoard(board.id)">Delete Board</a></button>
         </div>
       </div>
     </div>
