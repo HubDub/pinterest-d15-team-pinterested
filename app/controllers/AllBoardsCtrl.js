@@ -5,7 +5,9 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams) {
   let user = $scope.$parent.getUser();
   let boardId;
   let pins = [];
+  let boardIdsArr = [];
 
+//The function below gets the user boards from FB; then, before it is finished, it gets userPins based on the board ID.
   PinFactory.getUserBoards(user)
     .then( (boards) => {
       console.log("we are in getAllBoards these are boards", boards);
@@ -18,22 +20,19 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams) {
       boards.forEach(function(board){
         // console.log(board.id)
         boardId = board.id
-      })
-      console.log(boardId)
-     // console.log(boards)
+      console.log(boards)
+    })
 
+   //the problem is right below: even though a loop is running based on the length of the boards array obtained above, getUserPins is only being called on one of the boards in the array, not all of them.
+
+    for (var i = 0; i < boards.length; i++) {
     PinFactory.getUserPins(boardId)
     .then((result) => {
       console.log('result of get user pins', result)
       $scope.pins = result;
-    })
+      })
+      }
     });
-
-    //OK, only pulling back one board ID
-
-//this is getting back every user pin while still within the board loop and associating each pin retrieved pin with all the user boards, regardless of board ID on pin?
-
-//maybe push each pin into the boards array without using a pins array?
 
 
 });
