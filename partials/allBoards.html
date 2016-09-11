@@ -5,14 +5,17 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>{{board.name}}</h3>
-          <h4>{{board.description}}<h4>
+          <h4>{{board.description}}</h4>
       <!-- for each loop to go through pins on board -->
           <div ng-repeat="pin in pins">
+      <div ng-if="pin.boardId === board.id">
              <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
             <p>{{pin.caption}}</p>
           </div>
         <button> <a ng-href="#/:{{board.id}}">Edit Board</a></button>
         </div>
       </div>
+    </div>
+    </div>
     </div>
 

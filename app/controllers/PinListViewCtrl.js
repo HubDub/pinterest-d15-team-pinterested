@@ -20,7 +20,7 @@ let userId = $scope.$parent.getUser();
 
       boardsArray.forEach(function (board) {
         let boardId = board.id;
-        console.log(board);
+        // console.log(board);
         PinFactory.updateBoard(boardId, board);
         console.log("boardId", boardId);
       });
@@ -38,12 +38,11 @@ $scope.addBoardIdtoPin = (pin, boardId, pinId) =>{
     let pinToEdit;
 PinFactory.getSinglePin(pinId)
 .then(function(result) {
-    console.log ('something happened?', result)
     pinToEdit = result;
-    console.log(pinToEdit)
+    console.log('this is the pin to which we are taking the board ID', pinToEdit)
 
 pinToEdit.boardId = boardId;
-console.log(pinToEdit)
+console.log('this pin should have the board ID attached', pinToEdit)
 // let pinWithBoardId = pin;
 // console.log(pinWithBoardId)
 PinFactory.updatePin(pinId, pinToEdit)

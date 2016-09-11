@@ -29,6 +29,8 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams) {
     })
     });
 
+    //OK, only pulling back one board ID
+
 //this is getting back every user pin while still within the board loop and associating each pin retrieved pin with all the user boards, regardless of board ID on pin?
 
 //maybe push each pin into the boards array without using a pins array?
