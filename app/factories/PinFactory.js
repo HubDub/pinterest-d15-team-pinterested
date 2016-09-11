@@ -111,18 +111,6 @@ let updatePin = (pinId, editedPin) => {
   });
 };
 
- let getDropdownBoards = (userId) => {
-  return $q( (resolve, reject) => {
-    $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
-    .success((boardObject) => {
-      console.log('this is what we return before printing in dropdown', boardObject);
-      resolve(boardObject);
-      })
-    .error((error) => {
-      reject(error);
-    });
-  });
-};
 
 let getSingleBoard = (boardId) => {
   return $q ( (resolve, reject) => {
@@ -160,10 +148,24 @@ let deleteABoard = (boardId) => {
   });
 };
 
-return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard, getDropdownBoards};
+//  let getDropdownBoards = (userId) => {
+//   return $q( (resolve, reject) => {
+//     $http.get(`${FirebaseURL}boards.json?orderBy="uid"&equalTo="${userId}"`)
+//     .success((boardObject) => {
+//       console.log('this is what we return before printing in dropdown', boardObject);
+//       resolve(boardObject);
+//       })
+//     .error((error) => {
+//       reject(error);
+//     });
+//   });
+// };
+
+
+
+return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard};
 
 });
-
 
 
 

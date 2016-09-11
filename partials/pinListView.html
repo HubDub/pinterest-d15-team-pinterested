@@ -7,18 +7,18 @@
                 <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
                 <div>{{pin.caption}}</div>
                 <data class="col-md-1"></data>
-               <!--  <button class="btn btn-danger" ng-click="deletePin(pin.id)">X</button> -->
-              <!--  <button class="btn btn-success">Save This Pin!</button> -->
             <div class="input-group-btn  board-list">
             <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click=>Save This Pin</button>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="board" ng-repeat="board in boards"><a href="#">{{board.name}}</a></li>
+              <li class="board" ng-repeat="board in boards" ng-click="addBoardId(pin, board.id, pin.id)"><a href="#">{{board.name}}</a></li>
               <li role="separator" class="divider"></li>
               <li class="newBoard"><a href="#/newboard">Create a New Board</a></li>
             </ul>
           </div>
           </div>
           </div>
+               <!--  <button class="btn btn-danger" ng-click="deletePin(pin.id)">X</button> -->
+              <!--  <button class="btn btn-success">Save This Pin!</button> -->
           </div>
           </div>
 
