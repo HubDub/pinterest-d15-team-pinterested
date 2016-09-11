@@ -5,16 +5,23 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>{{board.name}}</h3>
-          <h4>{{board.description}}<h4>
+          <h4>{{board.description}}</h4>
       <!-- for each loop to go through pins on board -->
-          <div ng-repeat="pins in pins">
-            <p>{{pin.image}}</p>
+          <div ng-repeat="pin in pins">
+          <!-- this is the if statement that filters each pin by its board id. It has to be below the repeat in order to work (even though it seems like shifting it up a line would solve our problem?)-->
+             <div ng-if="pin.boardId === board.id">
+             <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
             <p>{{pin.caption}}</p>
+            </div>
+
           </div>
-        <button> <a ng-href="#/:{{board.id}}/edit">Edit Board</a></button>
-        <button> <a ng-href="#/board/:{{board.id}}">View Board</a></button>
-        <button> <a ng-click="deleteYourBoard(board.id)">Delete Board</a></button>
         </div>
+        <button> <a ng-href="#/:{{board.id}}/edit">Edit Board</a></button>
       </div>
     </div>
+    <button> <a ng-href="#/board/:{{board.id}}">View Board</a></button>
+    <button> <a ng-click="deleteYourBoard(board.id)">Delete Board</a></button>
 </div>
+
+
+

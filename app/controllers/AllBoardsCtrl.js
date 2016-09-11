@@ -1,17 +1,19 @@
 "use strict";
 
+
 app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams, $location) {
   // let userBoards = [];
 
-  PinFactory.getUserBoards($scope.$parent.getUser())
+  let user = $scope.$parent.getUser();
+  let boardId = [];
+  let pins = [];
+
+
+
+  PinFactory.getUserBoards(user)
     .then( (boards) => {
-      console.log("we are in getAllBoards these are boards", boards);
-      // for (var board in boardObj) {
-      //   boardObj[board].id = board;
-      //   userBoards.push(boardObj[board]);
-      // }
-      // console.log("you have boards", boards);
       $scope.boards = boards;
+      console.log('these are the boards', $scope.boards)
       // return userBoards;
     });
 
@@ -22,4 +24,20 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams, $loc
         $location.url("#/allBoards");
       });
   };
+
+
+  // PinFactory.getUserPins(board.id)
+  // .then((result) => {
+  // console.log('result of get user pins', result)
+  // $scope.pins = result;
+  //     })
+
+  PinFactory.getAllPins()
+  .then((pins) => {
+    $scope.pins = pins;
+  })
+
 });
+
+
+
