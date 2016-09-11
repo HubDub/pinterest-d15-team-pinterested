@@ -42,7 +42,7 @@ app.config(function($routeProvider){
         //     controller: "SavePinCtrl",
         // }).
 
-        when('/:board.id', {
+        when("/board/:boardId", {
             templateUrl: "partials/oneBoard.html",
             controller: "OneBoardCtrl",
             resolve: {isAuth}
