@@ -9,14 +9,14 @@
       <!-- for each loop to go through pins on board -->
           <div ng-repeat="pin in pins">
           <!-- this is the if statement that filters each pin by its board id. It has to be below the repeat in order to work (even though it seems like shifting it up a line would solve our problem?)-->
-      <div ng-if="pin.boardId === board.id">
+             <div ng-if="pin.boardId === board.id">
              <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
             <p>{{pin.caption}}</p>
           </div>
+          </div>
+          </div>
         <button> <a ng-href="#/:{{board.id}}">Edit Board</a></button>
-        </div>
+          </div>
       </div>
-    </div>
-    </div>
-    </div>
+      </div>
 
