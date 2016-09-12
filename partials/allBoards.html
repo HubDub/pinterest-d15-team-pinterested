@@ -12,6 +12,8 @@
           <div ng-if="pin.boardId === board.id">
           <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
           <p>{{pin.caption}}</p>
+          <button ng-click="deletePinOnBoard()">Delete</button>
+          <button ng-click="addNewPin(editedpin)"><a ng-href="#/{{pin.id}}/pinedit">Edit</a></button>
           </div>
         </div>
       </div>

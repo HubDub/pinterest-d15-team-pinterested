@@ -12,7 +12,7 @@ let userId = $scope.$parent.getUser();
         })[0];
     });
 
-    $scope.boards = []
+    $scope.boards = [];
     PinFactory.getUserBoards(userId)
     .then( (boardsArray) => {
       $scope.boards = boardsArray;
@@ -43,16 +43,17 @@ PinFactory.getSinglePin(pinId)
   let pinSaveToast = `<span><h4 style="color:orchid">You've saved this pin to a board! Good job!</h4></span>`;
   Materialize.toast(pinSaveToast, 2000)
 
+
 pinToEdit.boardId = boardId;
-console.log('this pin should have the board ID attached', pinToEdit)
+console.log('this pin should have the board ID attached', pinToEdit);
 // let pinWithBoardId = pin;
 // console.log(pinWithBoardId)
 PinFactory.updatePin(pinId, pinToEdit)
-.then(()=> {console.log('pin updated')
+.then(()=> {console.log('pin updated');
     $location.url("/allpins");
-})
-})
-}
+});
+});
+};
 });
 
 

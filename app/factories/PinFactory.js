@@ -128,6 +128,18 @@ let updatePin = (pinId, editedPin) => {
   });
 };
 
+let updateNewPin = (pinId, editedPin) => {
+  return $q( (resolve, reject) => {
+    $http.post(`${FirebaseURL}pins/${pinId}.json`, JSON.stringify(editedPin))
+    .success( (pinObject) => {
+      resolve(pinObject);
+    })
+    .error( (error) => {
+      reject(error);
+    });
+  });
+};
+
 
 let getSingleBoard = (boardId) => {
   console.log("PF getSingleBoard boardId:", boardId);
@@ -182,7 +194,7 @@ let deleteABoard = (boardId) => {
 
 
 
-return {getAllPins, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard, getUserPins};
+return {getAllPins, updateNewPin, getSinglePin, postNewPin, deletePin, updatePin, getSingleBoard, updateBoard, getUserBoards, postNewBoard, deleteABoard, getUserPins};
 
 });
 
