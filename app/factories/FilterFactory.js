@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("searchTermData", function() {
+app.factory("SearchTermData", function() {
   return {
     search: ""
   };

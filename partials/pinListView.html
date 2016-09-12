@@ -1,6 +1,7 @@
      <h1>Radical Pins</h1>
           <div class="row">
-          <div class ="panel panel-success col-md-3 .containerfixed pin-panel" ng-repeat="pin in pins">
+
+          <div class ="panel panel-success col-md-3 .containerfluid" ng-repeat="pin in pins | filter: {keyWords: searchText.search}">
             <div class="row">
               <div class="panel-body">
                 <!-- <div><a ng-href="/{{pin.id}}">{{pin.keyWords}}</a></div> -->
