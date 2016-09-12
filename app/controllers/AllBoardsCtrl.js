@@ -13,7 +13,7 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams, $loc
   PinFactory.getUserBoards(user)
     .then( (boards) => {
       $scope.boards = boards;
-      console.log('these are the boards', $scope.boards)
+      console.log('these are the boards', $scope.boards);
       // return userBoards;
     });
 
@@ -35,7 +35,7 @@ app.controller("AllBoardsCtrl", function ($scope, PinFactory, $routeParams, $loc
   PinFactory.getAllPins()
   .then((pins) => {
     $scope.pins = pins;
-  })
+  });
 
 });
 
