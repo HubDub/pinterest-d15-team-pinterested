@@ -1,6 +1,8 @@
 "use strict";
 
-app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams, $window, $location ){
+app.controller("PinListViewCtrl", function ($scope, PinFactory, $routeParams, $window, $location, SearchTermData){
+
+$scope.searchText = SearchTermData;
 
 let userId = $scope.$parent.getUser();
     $scope.pins = [];
