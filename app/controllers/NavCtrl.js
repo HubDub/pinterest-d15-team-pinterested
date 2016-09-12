@@ -1,9 +1,9 @@
 "use strict";
 
 app.controller("NavCtrl", function($scope,
-    // searchTermData,
+    SearchTermData,
     $location) {
-    // $scope.searchText = searchTermData;
+    $scope.searchText = SearchTermData;
     $scope.navItems = [    //create an array of objects
             {url: "#/logout", name: "Logout", showState: "$parent.isLoggedIn"},
             {url: '#/login', name: "Login", showState: "!$parent.isLoggedIn"},
