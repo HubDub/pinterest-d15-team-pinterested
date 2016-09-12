@@ -142,10 +142,10 @@ let getSingleBoard = (boardId) => {
     });
   });
 };
-
+// https://pinterest-75ff6.firebaseio.com/boards/-KRP4g85B2TkAAURe6Pv.json
 let updateBoard = (boardId, editedBoard) => {
   return $q ( (resolve, reject) => {
-    $http.put(`${FirebaseURL}boards/${boardId}.json`, JSON.stringify(editedBoard))
+    $http.patch(`${FirebaseURL}boards/${boardId}.json`, JSON.stringify(editedBoard))
     .success( (boardObject) => {
       resolve(boardObject);
     })
