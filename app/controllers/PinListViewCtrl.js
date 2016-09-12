@@ -40,6 +40,8 @@ PinFactory.getSinglePin(pinId)
 .then(function(result) {
     pinToEdit = result;
     console.log('this is the pin to which we are taking the board ID', pinToEdit)
+  let pinSaveToast = `<span><h4>You've saved this pin to a board! Good job!</h4></span>`;
+  Materialize.toast(pinSaveToast, 2000)
 
 pinToEdit.boardId = boardId;
 console.log('this pin should have the board ID attached', pinToEdit)
