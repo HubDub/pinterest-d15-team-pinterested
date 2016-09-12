@@ -1,4 +1,4 @@
-<h1>All Your Boards</h1>
+<h1>Your Boards</h1>
 <!-- for each loop to go through all boards -->
 <div ng-repeat="board in boards">
   <div class="col-md-5 cold-md-offset-1">
@@ -12,13 +12,11 @@
           <div ng-if="pin.boardId === board.id">
           <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
           <p>{{pin.caption}}</p>
-          <button ng-click="deletePinOnBoard()">Delete</button>
           <button ng-click="addNewPin(editedpin)"><a ng-href="#/{{pin.id}}/pinedit">Edit</a></button>
           </div>
         </div>
       </div>
       <button> <a ng-href="#/{{board.id}}/edit">Edit Board</a></button>
-      <button> <a ng-href="#/board/{{board.id}}">View Board</a></button>
       <button> <a ng-click="deleteYourBoard(board.id)">Delete Board</a></button>
     </div>
   </div>
