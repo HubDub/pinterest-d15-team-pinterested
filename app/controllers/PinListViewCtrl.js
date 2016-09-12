@@ -12,7 +12,7 @@ let userId = $scope.$parent.getUser();
         })[0];
     });
 
-    $scope.boards = []
+    $scope.boards = [];
     PinFactory.getUserBoards(userId)
     .then( (boardsArray) => {
       $scope.boards = boardsArray;
@@ -39,18 +39,18 @@ $scope.addBoardIdtoPin = (pin, boardId, pinId) =>{
 PinFactory.getSinglePin(pinId)
 .then(function(result) {
     pinToEdit = result;
-    console.log('this is the pin to which we are taking the board ID', pinToEdit)
+    console.log('this is the pin to which we are taking the board ID', pinToEdit);
 
 pinToEdit.boardId = boardId;
-console.log('this pin should have the board ID attached', pinToEdit)
+console.log('this pin should have the board ID attached', pinToEdit);
 // let pinWithBoardId = pin;
 // console.log(pinWithBoardId)
 PinFactory.updatePin(pinId, pinToEdit)
-.then(()=> {console.log('pin updated')
+.then(()=> {console.log('pin updated');
     $location.url("/allpins");
-})
-})
-}
+});
+});
+};
 });
 
 

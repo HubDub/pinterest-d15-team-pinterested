@@ -65,6 +65,12 @@ app.config(function($routeProvider){
             controller: "EditBoardCtrl",
             resolve: {isAuth}
         }).
+
+        when('/:pinId/pinedit', {
+            templateUrl: "partials/newPin.html",
+            controller: "EditPinCtrl",
+            resolve: {isAuth}
+        }).
         otherwise("/");
 });
 

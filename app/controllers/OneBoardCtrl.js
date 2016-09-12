@@ -5,7 +5,7 @@ app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFac
   PinFactory.getSingleBoard($routeParams.boards.boardId)
   .then( (singleBoard) => {
     console.log("inside getSingleBoard", singleBoard);
-    console.log($routeParams.board.boardId)
+    console.log($routeParams.board.boardId);
     $scope.board = singleBoard;
     console.log($scope.board);
     PinFactory.getOneBoardPins(boardId)
