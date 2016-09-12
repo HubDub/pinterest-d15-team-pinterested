@@ -46,7 +46,9 @@ console.log('this pin should have the board ID attached', pinToEdit)
 // let pinWithBoardId = pin;
 // console.log(pinWithBoardId)
 PinFactory.updatePin(pinId, pinToEdit)
-.then(()=> {console.log('pin updated')})
+.then(()=> {console.log('pin updated')
+    $location.url("/allpins");
+})
 })
 }
 });

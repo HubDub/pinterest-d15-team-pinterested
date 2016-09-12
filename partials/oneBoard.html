@@ -7,8 +7,8 @@
       <h4>{{board.description}}<h4>
       <div ng-repeat="pins in pins">
         <div class="col-md-3 col-md-offset-1">
-        <p>{{pin.image}}</p>
-        <p>{{pin.caption}}</p>
+       <img class="pin-pic materialboxed .img-responsive" src= "{{pin.photo}}">
+          <p>{{pin.caption}}</p>
         <button ng-click="deletePin(pin.id)">Delete Pin</button>
       </div>
       <button ng-click="deleteOneBoard(board.id)">Delete Board</button>
