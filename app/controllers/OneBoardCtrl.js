@@ -5,23 +5,9 @@
 
 // "use strict";
 
-<<<<<<< HEAD
+
 // app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFactory) {
-=======
-  PinFactory.getSingleBoard($routeParams.boardId)
-  .then( (singleBoard) => {
-    console.log("inside getSingleBoard", singleBoard);
-    console.log($routeParams.boardId);
-    let boardId = $routeParams.boardId;
-    $scope.board = singleBoard;
-    console.log($scope.board);
-    PinFactory.getUserPins(boardId)
-      .then( (pinsOnBoard) => {
-        return pinsOnBoard;
-      });
-    return singleBoard;
-  });
->>>>>>> f7b83631c2e5308dd29da4488c2fe35b3f95a8ee
+
 
 //   PinFactory.getSingleBoard($routeParams.boardId)
 //   .then( (singleBoard) => {
