@@ -2,13 +2,14 @@
 
 app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFactory) {
 
-  PinFactory.getSingleBoard($routeParams.boards.boardId)
+  PinFactory.getSingleBoard($routeParams.boardId)
   .then( (singleBoard) => {
     console.log("inside getSingleBoard", singleBoard);
-    console.log($routeParams.board.boardId)
+    console.log($routeParams.boardId)
+    let boardId = $routeParams.boardId
     $scope.board = singleBoard;
     console.log($scope.board);
-    PinFactory.getOneBoardPins(boardId)
+    PinFactory.getUserPins(boardId)
       .then( (pinsOnBoard) => {
         return pinsOnBoard;
       });
@@ -16,7 +17,8 @@ app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFac
   });
 
   $scope.editOneBoard = () => {
-    PinFactory.updateBoard($routeParams.boardId) //what is the name of her editboard object to be passed in here?
+    PinFactory.updateBoard($routeParams.boardId)
+    //what is the name of her editboard object to be passed in here?
       .then( (response) => {
         $location.url("/oneBoard/:{boardId}");
       });
@@ -27,7 +29,7 @@ app.controller("OneBoardCtrl", function ($routeParams, $scope, $location, PinFac
     PinFactory.deleteABoard(boardId)
     .then( (response) => {
       $location.url("/allBoards");
-      //how delete the pins on this board too
+      //how delete the pins on this board too?
     });
   };
 
